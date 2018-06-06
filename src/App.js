@@ -4,25 +4,25 @@ import MyButton from './myButton.js';
 import MyTable from './myTable.js';
 
 const knownPlayers = {
-  'AaronJudge' : [3.30, 30, 25]
+  'Judge' : ['Aaron Judge', .280, 30, 25, 8.1],
+  'Betts' : ['Mookie Betts', .359, 17, 25, 4.2]
 }
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      myWords : [[null,null]]
+      myWords : []
     }
     this.addToState = this.addToState.bind(this);
   }
 
 
   addToState(position, name){
-    if (name === 'AaronJudge'){
-      var newList = this.state.myWords.concat([[position, name, knownPlayers.AaronJudge[0], knownPlayers.AaronJudge[1]]])
+    if (Object.keys(knownPlayers).includes(name)){
+      var newList = this.state.myWords.concat([[position, knownPlayers[name][0], knownPlayers[name][1], knownPlayers[name][2], knownPlayers[name][3], knownPlayers[name][4]]])
       this.setState({ myWords : newList})
     }
-    console.log(this.state.myWords)
   }
   render() {
     return (

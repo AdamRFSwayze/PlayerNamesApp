@@ -2,12 +2,10 @@ import React from 'react';
 
 
 class MyTable extends React.Component{
-  constructor(props){
-    super(props);
-  }
+
   render(){
     return (
-      <div class="container" id="TableContainer" align="center">
+      <div className="container" id="TableContainer" align="center">
         <table id="MrTable" className="table">
         <tbody>
           <tr>
@@ -16,8 +14,10 @@ class MyTable extends React.Component{
             <th>Batting Average</th>
             <th>Home Runs</th>
             <th>Age</th>
+            <th>WAR</th>
           </tr>
-          { this.props.wordList.map( (word, index) =>
+          {
+              this.props.wordList.map( (word, index) =>
           <tr key= {index}>
             {word.map((stats, index)=>
             <td key={index}> {stats} </td>)}

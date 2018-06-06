@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const positions = ['First Base', 'Second Base', 'Short Stop', 'Thirdbase'];
+const positions = ['First Base', 'Second Base', 'Short Stop', 'Thirdbase', 'Right Field', 'Center Field', 'Left Field', 'Catcher'];
 
 class MyButton extends React.Component{
   constructor(props){
@@ -11,8 +11,8 @@ class MyButton extends React.Component{
 
   handleSubmit(event){
     event.preventDefault();
-    if (document.getElementById("myTextToAdd").value !== ''){
-      this.props.addWord(document.getElementById("mySelect").value, document.getElementById("myTextToAdd").value);
+    if (this.myText.value !== ''){
+      this.props.addWord(this.select.value, this.myText.value);
       document.getElementById("myTextToAdd").value = null;
     } else {
       alert('No PLayer Picked')
@@ -26,14 +26,14 @@ class MyButton extends React.Component{
     return (
       <form onSubmit = {this.handleSubmit} autoComplete="off">
 
-        <select className="form-control" id="mySelect">
+        <select className="form-control" id="mySelect" ref={select => this.select = select}>
           {positions.map( (position) =>
           <option> {position} </option>
             )
           }
         </select>
 
-        <input id="myTextToAdd" type="text"/>
+        <input id="myTextToAdd" type="text" ref={myText => this.myText = myText}/>
         <input type="Submit" value="Click to Add" />
       </form>
     )
