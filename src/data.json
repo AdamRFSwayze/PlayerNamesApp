@@ -1,0 +1,21 @@
+{
+  "data": {
+
+    "Judge" : {
+        "name" : "Aaron Judge",
+        "Position" : "RF",
+        "Age" : 25,
+        "BA" : 0.280,
+        "HR" : 16,
+        "WAR" : 7.1
+      },
+      "Sanchez" : {
+        "name" : "Gary Sanchez",
+        "Position" : "C",
+        "Age" : 24,
+        "BA" : 0.200,
+        "HR" : 12,
+        "WAR" : 2
+      }
+  }
+}

@@ -3,10 +3,9 @@ import './App.css';
 import MyButton from './myButton.js';
 import MyTable from './myTable.js';
 
-const knownPlayers = {
-  'Judge' : ['Aaron Judge', .280, 30, 25, 8.1],
-  'Betts' : ['Mookie Betts', .359, 17, 25, 4.2]
-}
+
+var playerData = require('./data.json');
+
 
 class App extends Component {
   constructor(props){
@@ -19,9 +18,13 @@ class App extends Component {
 
 
   addToState(position, name){
-    if (Object.keys(knownPlayers).includes(name)){
-      var newList = this.state.myWords.concat([[position, knownPlayers[name][0], knownPlayers[name][1], knownPlayers[name][2], knownPlayers[name][3], knownPlayers[name][4]]])
+    if (Object.keys(playerData.data).includes(name)){
+      var newList = this.state.myWords.concat([
+        [playerData.data[name].Position, playerData.data[name].name, playerData.data[name].BA, playerData.data[name].HR,
+        playerData.data[name].Age, playerData.data[name].WAR]])
+
       this.setState({ myWords : newList})
+      console.log(Object.keys(playerData.data))
     }
   }
   render() {

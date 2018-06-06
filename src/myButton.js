@@ -26,14 +26,14 @@ class MyButton extends React.Component{
     return (
       <form onSubmit = {this.handleSubmit} autoComplete="off">
 
-        <select className="form-control" id="mySelect" ref={select => this.select = select}>
+        <select className="form-control" id="mySelect" ref={select => { this.select = select }}>
           {positions.map( (position) =>
           <option> {position} </option>
             )
           }
         </select>
 
-        <input id="myTextToAdd" type="text" ref={myText => this.myText = myText}/>
+        <input id="myTextToAdd" type="text" ref={myText => { this.myText = myText }}/>
         <input type="Submit" value="Click to Add" />
       </form>
     )
